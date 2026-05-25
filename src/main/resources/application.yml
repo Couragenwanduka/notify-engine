@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: emailq
+  docker:
+    compose:
+      enabled: false
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/mydatabase
+    username: myuser
+    password: secret
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        boot:
+          allow_jdbc_metadata_access: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+server:
+  port: 8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
